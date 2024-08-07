@@ -7,7 +7,7 @@ public class Thread2 implements Runnable {
             System.out.println("Thread2 x3 : " + (i++)*3);
 
             try {
-                Thread.sleep(50);
+                Thread.sleep(150);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
