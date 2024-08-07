@@ -5,6 +5,9 @@
 
 public class Main {
     public static void main(String[] args) {
+
+        int sleepTime = 3;
+
         Thread1 thread1 = new Thread1();
         thread1.setDaemon(true);
 
@@ -15,7 +18,7 @@ public class Main {
         thread2.start();
 
         try {
-            Thread.sleep(3000);
+            Thread.sleep(sleepTime*1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
