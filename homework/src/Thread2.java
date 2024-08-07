@@ -1,4 +1,4 @@
-public class HwThread2 implements Runnable {
+public class Thread2 implements Runnable {
     int i=0;
     @Override
     public void run() {

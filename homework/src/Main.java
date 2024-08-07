@@ -3,12 +3,12 @@
 //второй поток должен выводить все числа которые делятся на 3;
 //Main должен запускать оба эти потока, засыпать на 3 секунды и завершать выполнение программы (т.е. оба потока тоже должны прекратить свою работу)
 
-public class HwMain {
+public class Main {
     public static void main(String[] args) {
-        HwThread1 thread1 = new HwThread1();
+        Thread1 thread1 = new Thread1();
         thread1.setDaemon(true);
 
-        Thread thread2 = new Thread(new HwThread2());
+        Thread thread2 = new Thread(new Thread2());
         thread2.setDaemon(true);
 
         thread1.start();

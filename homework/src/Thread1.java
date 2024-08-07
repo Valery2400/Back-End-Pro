@@ -1,4 +1,4 @@
-public class HwThread1 extends Thread {
+public class Thread1 extends Thread {
     int i = 0;
     public void run() {
         System.out.println("Thread run:  " + Thread.currentThread().getName());
