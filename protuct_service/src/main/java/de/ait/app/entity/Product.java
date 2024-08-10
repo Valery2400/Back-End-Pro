@@ -1,7 +1,5 @@
 package de.ait.app.entity;
 
-import jdk.jfr.Category;
-
 import java.math.BigDecimal;
 
 public class Product {

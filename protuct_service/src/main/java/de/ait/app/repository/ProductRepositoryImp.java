@@ -9,10 +9,10 @@ import java.util.List;
 @Component
 public class ProductRepositoryImp implements ProductRepository {
     List<Product> db = List.of (
-            new Product(1L,"Banana",new BigDecimal("1.98"),"art1"),
-            new Product(2L,"Kiwi",new BigDecimal("1.98"),"art2"),
-            new Product(3L,"Apple",new BigDecimal("1.98"),"art3"),
-            new Product(4L,"Ananas",new BigDecimal("1.98"),"art4")
+            new Product(1L,"Banana",new BigDecimal("1.99"),"art1"),
+            new Product(2L,"Kiwi",new BigDecimal("2.99"),"art2"),
+            new Product(3L,"Apple",new BigDecimal("3.99"),"art3"),
+            new Product(4L,"Pineapple",new BigDecimal("5.99"),"art4")
     );
 
     @Override
