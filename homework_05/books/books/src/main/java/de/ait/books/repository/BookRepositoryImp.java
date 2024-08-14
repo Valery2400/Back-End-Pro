@@ -32,7 +32,8 @@ public class BookRepositoryImp implements BookRepository {
     public Book save(Book book) {
         if (book.getId() == null) {
         // create new book
-            books.get(books.size() - 1).setId(book.getId()+1);
+            long newId = books.get(books.size() - 1).getId() + 1;
+            book.setId(newId);
             books.add(book);
 
         } else {
