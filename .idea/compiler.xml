@@ -8,7 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="homework_03" />
         <module name="protuct_service" />
+        <module name="homework_05" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cons20240813" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
