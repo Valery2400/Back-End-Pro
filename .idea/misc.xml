@@ -8,7 +8,15 @@
         <option value="$PROJECT_DIR$/homework_03/pom.xml" />
         <option value="$PROJECT_DIR$/cons20240813/pom.xml" />
         <option value="$PROJECT_DIR$/homework_05/pom.xml" />
+        <option value="$PROJECT_DIR$/lesson_07/pom.xml" />
+        <option value="$PROJECT_DIR$/jdbc_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/lesson_07/jdbc_demo/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/lesson_07/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
