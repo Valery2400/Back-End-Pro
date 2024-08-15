@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -17,9 +18,24 @@ public class UserServiceImp implements UserService {
         this.repository = repository;
     }
 
-    @Override
+
     public List<User> findAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public List<User> getUsers(String name, String email) {
+        Predicate<User> predicateByName = (name.equals("")) ? u -> true: u -> u.getName().equalsIgnoreCase(name);
+        Predicate<User> predicateByEmail = (email.equals("")) ? u -> true: u -> u.getEmail().equalsIgnoreCase(email);
+
+        Predicate<User> allConditions = predicateByName.and(predicateByEmail);
+
+        return repository.findAll()
+                .stream()
+                .filter(allConditions)
+                .toList();
+
+
     }
 
     @Override
@@ -39,7 +55,7 @@ public class UserServiceImp implements UserService {
         return repository.save(user);
     }
 
-    @Override
+
     public List<User> findByName(String name) {
         return findAll()
                 .stream()

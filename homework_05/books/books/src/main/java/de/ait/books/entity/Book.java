@@ -1,5 +1,7 @@
 package de.ait.books.entity;
 
+
+
 public class Book {
     private Long id;
     private String title;

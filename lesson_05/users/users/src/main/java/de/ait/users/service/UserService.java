@@ -5,8 +5,13 @@ import de.ait.users.entity.User;
 import java.util.List;
 
 public interface UserService {
-    List<User> findAll();
+
+    List<User> getUsers(String name, String email);
+
+    //List<User> findAll();
+
     User findById(Long id);
     User createNewUser (User user);
-    List<User> findByName(String name);
+
+    //List<User> findByName(String name);
 }
