@@ -3,6 +3,7 @@ package de.ait.users.service;
 import de.ait.users.entity.User;
 import de.ait.users.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class UserServiceImp implements UserService {
     private final UserRepository repository;
 
     @Autowired
-    public UserServiceImp(UserRepository repository) {
+    public UserServiceImp(@Qualifier("getRepository")UserRepository repository) {
         this.repository = repository;
     }
 
@@ -55,6 +56,11 @@ public class UserServiceImp implements UserService {
         return repository.save(user);
     }
 
+    @Override
+    public User updateUser(User user) {
+        return repository.save(user);
+    }
+
 
     public List<User> findByName(String name) {
         return findAll()
@@ -62,4 +68,5 @@ public class UserServiceImp implements UserService {
                 .filter(u->u.getName().equals(name))
                 .toList();
     }
+
 }

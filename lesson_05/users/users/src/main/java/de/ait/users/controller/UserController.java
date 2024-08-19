@@ -47,6 +47,10 @@ public class UserController {
             return service.findById(id);
 
         }
+    @PutMapping("/users")
+    public User updateUser (@RequestBody User user){
+        return service.updateUser(user);
+    }
         // users/3/accounts/4
         // @GetMapping
 
