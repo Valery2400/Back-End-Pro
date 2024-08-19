@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+//@Repository
 public class BookRepositoryImp implements BookRepository {
     private List<Book> books = new ArrayList<>(List.of(
             new Book(1L, "Book1", "Author1"),

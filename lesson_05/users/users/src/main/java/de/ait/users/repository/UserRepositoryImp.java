@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+//@Repository
 public class UserRepositoryImp implements UserRepository {
     private List<User> database = new ArrayList<>( List.of(
             new User(1L, "Jack", "jack@email.com","qwerty1"),
