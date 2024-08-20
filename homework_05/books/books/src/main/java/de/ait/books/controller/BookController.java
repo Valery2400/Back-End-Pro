@@ -18,22 +18,26 @@ public class BookController {
         this.bookService = bookService;
 
     }
+
     @GetMapping("/books")
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
 
     }
+
     @PostMapping("/books")
     public Book createBook(@RequestBody Book book) {
         return bookService.addBook(book);
     }
+
     @GetMapping("/books/{numberId}")
-    public Book getBook(@PathVariable(name="numberId") Long id) {
+    public Book getBook(@PathVariable(name = "numberId") Long id) {
         return bookService.getBookById(id);
     }
-@PutMapping ("/books")
+
+    @PutMapping("/books")
     public Book updateBook(@RequestBody Book book) {
         return bookService.updateBook(book);
-}
+    }
 
 }
