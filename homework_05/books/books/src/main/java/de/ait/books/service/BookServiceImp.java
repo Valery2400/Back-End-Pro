@@ -55,4 +55,8 @@ public class BookServiceImp implements BookService {
         }
         return bookRepository.save(book);
     }
+    @Override
+    public Book updateBook(Book book) {
+        return bookRepository.save(book);
+    }
 }

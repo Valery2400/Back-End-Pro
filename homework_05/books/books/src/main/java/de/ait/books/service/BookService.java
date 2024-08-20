@@ -10,6 +10,7 @@ Book getBookById(Long id);
 List<Book> getBooksByAuthor(String author);
 List<Book> getBooksByTitle(String title);
 Book addBook(Book book);
+Book updateBook(Book book);
 
 
 
