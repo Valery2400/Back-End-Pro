@@ -12,7 +12,8 @@ public class HibernateConfiguration {
                 .buildSessionFactory()
                 .createEntityManager();
     }
-public EntityManager getEntityManager() {
+
+    public EntityManager getEntityManager() {
         return entityManager;
-}
+    }
 }
