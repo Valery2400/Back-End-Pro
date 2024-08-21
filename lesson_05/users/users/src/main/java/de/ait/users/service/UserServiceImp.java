@@ -1,7 +1,10 @@
 package de.ait.users.service;
 
+import de.ait.users.dto.UserRequestDTO;
+import de.ait.users.dto.UserResponseDTO;
 import de.ait.users.entity.User;
 import de.ait.users.repository.UserRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -13,59 +16,64 @@ import java.util.function.Predicate;
 public class UserServiceImp implements UserService {
 
     private final UserRepository repository;
+    private final ModelMapper mapper;
+
 
     @Autowired
-    public UserServiceImp(@Qualifier("getRepository")UserRepository repository) {
+    public UserServiceImp(@Qualifier("getRepository") UserRepository repository, ModelMapper mapper) {
         this.repository = repository;
+        this.mapper = mapper;
     }
 
 
-    public List<User> findAll() {
-        return repository.findAll();
+    public List<UserResponseDTO> findAll() {
+        return UserResponseDTO.of(repository.findAll());
     }
 
     @Override
-    public List<User> getUsers(String name, String email) {
-        Predicate<User> predicateByName = (name.equals("")) ? u -> true: u -> u.getName().equalsIgnoreCase(name);
-        Predicate<User> predicateByEmail = (email.equals("")) ? u -> true: u -> u.getEmail().equalsIgnoreCase(email);
+    public List<UserResponseDTO> getUsers(String name, String email) {
+        Predicate<User> predicateByName = (name.equals("")) ? u -> true : u -> u.getName().equalsIgnoreCase(name);
+        Predicate<User> predicateByEmail = (email.equals("")) ? u -> true : u -> u.getEmail().equalsIgnoreCase(email);
 
         Predicate<User> allConditions = predicateByName.and(predicateByEmail);
 
-        return repository.findAll()
+        List<User> userList = repository.findAll()
                 .stream()
                 .filter(allConditions)
                 .toList();
 
-
+        return UserResponseDTO.of(userList);
     }
 
     @Override
-    public User findById(Long id) {
+    public UserResponseDTO findById(Long id) {
         return findAll()
-        .stream()
+                .stream()
                 .filter(u -> u.getId().equals(id))
                 .findAny()
                 .orElse(null);
     }
 
     @Override
-    public User createNewUser(User user) {
-        if (user.getId() != null) {
-            user.setId(null);
-        }
-        return repository.save(user);
+    public UserResponseDTO createNewUser(UserRequestDTO dto) {
+        User user = repository.save(UserRequestDTO.toEntity(dto));
+//        User user = repository.save(mapper.map(dto, User.class));
+        return UserResponseDTO.of(user);
+//        return mapper.map(user, UserResponseDTO.class);
     }
 
     @Override
-    public User updateUser(User user) {
+    public User updateUser(Long id, UserRequestDTO dto) {
+        User user = UserRequestDTO.toEntity(dto); // dto -> entity
+        user.setId(id);
         return repository.save(user);
     }
 
 
-    public List<User> findByName(String name) {
+    public List<UserResponseDTO> findByName(String name) {
         return findAll()
                 .stream()
-                .filter(u->u.getName().equals(name))
+                .filter(u -> u.getName().equals(name))
                 .toList();
     }
 

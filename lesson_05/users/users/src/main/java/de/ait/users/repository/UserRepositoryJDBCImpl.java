@@ -40,11 +40,11 @@ public class UserRepositoryJDBCImpl implements UserRepository {
     }
 
     @Override
-    public User findById(int id) {
+    public User findById(Long id) {
         return null;
     }
 
-    @Override
+   @Override
     public User save(User user) {
         if (user.getId() == null) {
             return create(user);

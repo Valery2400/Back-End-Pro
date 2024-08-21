@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BackEndPro.iml" filepath="$PROJECT_DIR$/BackEndPro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beerFridge/beerFridge.iml" filepath="$PROJECT_DIR$/beerFridge/beerFridge.iml" />
       <module fileurl="file://$PROJECT_DIR$/consultation/cons20240808/cons20240808.iml" filepath="$PROJECT_DIR$/consultation/cons20240808/cons20240808.iml" />
       <module fileurl="file://$PROJECT_DIR$/consultation/cons20240815/cons20240815.iml" filepath="$PROJECT_DIR$/consultation/cons20240815/cons20240815.iml" />
       <module fileurl="file://$PROJECT_DIR$/lesson_02/demo_spring_intro/demo_spring_intro.iml" filepath="$PROJECT_DIR$/lesson_02/demo_spring_intro/demo_spring_intro.iml" />

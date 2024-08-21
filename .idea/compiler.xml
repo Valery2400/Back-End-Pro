@@ -9,12 +9,13 @@
         <module name="homework_03" />
         <module name="jdbc_demo" />
         <module name="lesson_07" />
+        <module name="cons20240820" />
         <module name="homework_07" />
         <module name="protuct_service" />
+        <module name="cons20240813" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="cons20240813" target="17" />
       <module name="homework_05" target="17" />
       <module name="lesson_07" target="17" />
     </bytecodeTargetLevel>

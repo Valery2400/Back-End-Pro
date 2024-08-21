@@ -1,9 +1,9 @@
 package de.ait.users.controller;
 
-import de.ait.users.entity.User;
+import de.ait.users.dto.UserRequestDTO;
+import de.ait.users.dto.UserResponseDTO;
 import de.ait.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class UserController {
 
 
     @GetMapping("/users")
-    public List<User> getUsers(@RequestParam(name = "n", required = false, defaultValue = "") String name,
+    public List<UserResponseDTO> getUsers(@RequestParam(name = "n", required = false, defaultValue = "") String name,
 
     @RequestParam(name = "e", required = false, defaultValue = "") String email) {
 
@@ -38,18 +38,18 @@ public class UserController {
 //    }
 
         @PostMapping("/users")
-        public User createUser (@RequestBody User user){
-            return service.createNewUser(user);
+        public UserRequestDTO createUser (@RequestBody UserRequestDTO userDto){
+            return service.createNewUser(userDto);
         }
 
-        @GetMapping("/users/{numId}")
-        public User getUserById (@PathVariable(name = "numId") Long id){
+        @GetMapping("/users/{id}")
+        public UserRequestDTO getUserById (@PathVariable(name = "id") Long id){
             return service.findById(id);
-
         }
-    @PutMapping("/users")
-    public User updateUser (@RequestBody User user){
-        return service.updateUser(user);
+
+         @PutMapping("/users/{id}")
+         public UserRequestDTO updateUser (@PathVariable(name = "id") Long id, @RequestBody UserRequestDTO userRequestDTO){
+            return service.updateUser(id, userRequestDTO);
     }
         // users/3/accounts/4
         // @GetMapping
