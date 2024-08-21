@@ -52,13 +52,15 @@ public class UserRepositoryImp implements UserRepository {
             }
             return user;
         }
-
-        @Override
-        public void delete User user){
-    return null;
-
-        }
+        return user;
     }
+
+    @Override
+    public void delete(User user) {
+
+    }
+
+
 }
 
 
