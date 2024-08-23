@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 
+@EqualsAndHashCode
 @Builder    // !!! create pattern Builder
 @ToString
 @Setter
