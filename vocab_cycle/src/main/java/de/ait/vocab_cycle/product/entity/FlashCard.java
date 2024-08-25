@@ -38,7 +38,7 @@ public class FlashCard {
     private String word; // слово
     @Column(name = "example")
     private String example; // пример использования/фраза/example sentence
-    @Column(name = "translateLanguage")
+    @Column(name = "translate_language")
     private String translateLanguage; // язык перевода
     @Column(name = "translation")
     private String translation; // перевод
