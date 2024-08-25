@@ -3,7 +3,6 @@ package de.ait.vocab_cycle.product.controller;
 import de.ait.vocab_cycle.product.entity.FlashCard;
 import de.ait.vocab_cycle.product.service.FlashCardService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +18,7 @@ public class FlashCardController {
     }
 
     @GetMapping("/flashcards/{id}")
-    public FlashCard getFlashCardById(@PathVariable(name = "id") Integer id) {
+    public FlashCard getFlashCardById(@PathVariable(name = "id") Long id) {
         return flashCardService.findById(id);
     }
 
@@ -28,13 +27,13 @@ public class FlashCardController {
         return flashCardService.save(flashCard);
     }
 
-//    @PutMapping("/flashcards/{id}")
-//    public FlashCard updateFlashCard(@PathVariable(name = "id") Integer id, @RequestBody FlashCard flashCard) {
-//        return flashCardService.update(flashCard);
-//    }
+    @PutMapping("/flashcards/{id}")
+    public FlashCard updateFlashCard(@PathVariable(name = "id") Long id, @RequestBody FlashCard flashCard) {
+        return flashCardService.update(flashCard);
+    }
 
 //    @DeleteMapping("/flashcards/{id}")
-//    public void deleteFlashCard(@PathVariable(name = "id") Integer id, @RequestBody FlashCard flashCard) {
+//    public void deleteFlashCard(@PathVariable(name = "id") Long id, @RequestBody FlashCard flashCard) {
 //        flashCardService.delete(flashCard);
 //    }
 

@@ -19,22 +19,29 @@ public class FlashCardServiceImp implements FlashCardService {
 
     @Override
     public List<FlashCard> findAll() {
-        return List.of();
+        return flashCardRepository.findAll()
+                .stream()
+                .map(flashCard -> modelMapper.map(flashCard, FlashCard.class))
+                .toList();
     }
 
     @Override
-    public FlashCard findById(int id) {
-        return null;
+    public FlashCard findById(Long id) {
+        return findAll()
+                .stream()
+                .filter(c -> c.getId().equals(id))
+                .findAny()
+                .orElse(null);
     }
 
     @Override
     public FlashCard save(FlashCard flashCard) {
-        return null;
+        return modelMapper.map(flashCard, FlashCard.class);
     }
 
     @Override
     public FlashCard update(FlashCard flashCard) {
-        return null;
+        return flashCardRepository.save(flashCard);
     }
 
     @Override
