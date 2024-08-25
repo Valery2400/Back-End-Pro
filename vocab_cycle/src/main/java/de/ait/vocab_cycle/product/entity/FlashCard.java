@@ -31,7 +31,7 @@ public class FlashCard {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private Long id;
+    private Integer id;
     @Column(name = "language")
     private String language; // язык оригинала
     @Column(name = "word")
