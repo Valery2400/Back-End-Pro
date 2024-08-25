@@ -27,8 +27,9 @@ import lombok.*;
 @Entity
 @Table(name="flashcard")
 public class FlashCard {
-    @Id
+
     @GeneratedValue
+    @Id
     @Column(name = "id")
     private Long id;
     @Column(name = "language")
@@ -41,7 +42,7 @@ public class FlashCard {
     private String translateLanguage; // язык перевода
     @Column(name = "translation")
     private String translation; // перевод
-    @Column(name = "group")
-    private String group; // группа карточек
+    @Column(name = "grouppe")
+    private String grouppe; // группа карточек
 
 }
