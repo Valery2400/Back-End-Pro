@@ -25,7 +25,7 @@ import lombok.*;
 @NoArgsConstructor
 
 @Entity
-@Table(name="flashcard")
+@Table(name = "flashcard")
 public class FlashCard {
 
     @GeneratedValue
