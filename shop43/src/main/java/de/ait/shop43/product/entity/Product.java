@@ -1,5 +1,6 @@
 package de.ait.shop43.product.entity;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -11,9 +12,18 @@ import java.math.BigDecimal;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+
+@Entity
+@Table(name="product")
 public class Product {
+    @Id
+    @GeneratedValue
+    @Column(name="id")
     private Long id;
-    private String name;
+    @Column(name = "title")
+    private String title;
+    @Column(name="price")
     private BigDecimal price;
+    @Column(name="active")
     private boolean active;
 }
