@@ -36,7 +36,7 @@ public class FlashCardServiceImp implements FlashCardService {
 
     @Override
     public FlashCard save(FlashCard flashCard) {
-        return modelMapper.map(flashCard, FlashCard.class);
+        return flashCardRepository.save(flashCard);
     }
 
     @Override
@@ -46,6 +46,7 @@ public class FlashCardServiceImp implements FlashCardService {
 
     @Override
     public void delete(FlashCard flashCard) {
+        flashCardRepository.delete(flashCard);
 
     }
 }

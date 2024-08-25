@@ -23,7 +23,7 @@ public class FlashCardController {
     }
 
     @PostMapping("/flashcards")
-    public FlashCard createFlashCard(FlashCard flashCard) {
+    public FlashCard createFlashCard(@RequestBody FlashCard flashCard) {
         return flashCardService.save(flashCard);
     }
 
@@ -32,10 +32,10 @@ public class FlashCardController {
         return flashCardService.update(flashCard);
     }
 
-//    @DeleteMapping("/flashcards/{id}")
-//    public void deleteFlashCard(@PathVariable(name = "id") Long id, @RequestBody FlashCard flashCard) {
-//        flashCardService.delete(flashCard);
-//    }
+    @DeleteMapping("/flashcards/{id}")
+    public void deleteFlashCard(@PathVariable(name = "id") Long id,@RequestBody FlashCard flashCard) {
+        flashCardService.delete(flashCard);
+    }
 
 }
 
