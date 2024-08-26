@@ -1,8 +1,11 @@
 package de.ait.shop43.product.service;
 
+import de.ait.shop43.exeption.ProductNotFoundExeption;
+import de.ait.shop43.product.dto.RequestProductDTO;
 import de.ait.shop43.product.dto.ResponseProductDTO;
 import de.ait.shop43.product.entity.Product;
 import de.ait.shop43.product.repository.ProductRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -34,10 +37,32 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public ResponseProductDTO update(Long id, ResponseProductDTO dto) {
+    @Transactional
+    public ResponseProductDTO update(Long id, RequestProductDTO dto) {
         Product entity = mapper.map(dto, Product.class);
         entity.setId(id);
-        Product updatedProduct = repository.save(entity);
-        return mapper.map(updatedProduct, ResponseProductDTO.class);
+        entity = repository.save(entity);
+        return mapper.map(entity, ResponseProductDTO.class);
     }
+
+
+    @Override
+    @Transactional
+    public ResponseProductDTO updateActiveStatus(Long productId, boolean active) {
+        Product entity = repository
+                .findById(productId)
+                .orElseThrow(() -> new ProductNotFoundExeption("Product " + productId + " not found"));
+        entity.setActive(active);
+
+        return mapper.map( entity, ResponseProductDTO.class);
+    }
+
+    @Override
+    public List<ResponseProductDTO> findByTitle(String title) {
+        List<Product> productByTitle = repository.findByTitle(title);
+        return productByTitle.stream()
+                .map(product -> mapper.map(product, ResponseProductDTO.class))
+                .toList();
+    }
+
 }
