@@ -32,4 +32,12 @@ public class ProductServiceImp implements ProductService {
         Product newProduct = repository.save(entity);
         return mapper.map(newProduct, ResponseProductDTO.class); // Product -> ResponseProductDTO
     }
+
+    @Override
+    public ResponseProductDTO update(Long id, ResponseProductDTO dto) {
+        Product entity = mapper.map(dto, Product.class);
+        entity.setId(id);
+        Product updatedProduct = repository.save(entity);
+        return mapper.map(updatedProduct, ResponseProductDTO.class);
+    }
 }

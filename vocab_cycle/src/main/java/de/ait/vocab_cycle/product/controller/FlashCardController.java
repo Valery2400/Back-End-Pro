@@ -33,9 +33,10 @@ public class FlashCardController {
     }
 
     @DeleteMapping("/flashcards/{id}")
-    public void deleteFlashCard(@PathVariable(name = "id") Long id, @RequestBody FlashCard flashCard) {
+    public void deleteFlashCard(@PathVariable(name = "id") Long id, FlashCard flashCard) {
         flashCardService.delete(flashCard);
     }
+
 
 }
 

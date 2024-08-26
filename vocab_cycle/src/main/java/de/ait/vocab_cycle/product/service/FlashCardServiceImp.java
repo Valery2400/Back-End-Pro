@@ -49,4 +49,9 @@ public class FlashCardServiceImp implements FlashCardService {
         flashCardRepository.delete(flashCard);
 
     }
+    @Override
+    public void delete(Long id) {
+        flashCardRepository.delete(findById(id));
+
+    }
 }

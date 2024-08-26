@@ -3,10 +3,7 @@ package de.ait.shop43.product.controller;
 import de.ait.shop43.product.dto.ResponseProductDTO;
 import de.ait.shop43.product.service.ProductService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +22,9 @@ public class ProductController {
     public ResponseProductDTO createProduct(@RequestBody ResponseProductDTO dto) {
        return service.save(dto);
    }
+
+    @PutMapping("/products/{id}")
+    public ResponseProductDTO updateProduct(@RequestBody ResponseProductDTO dto, @PathVariable Long id) {
+        return service.update(id,dto);
+    }
 }

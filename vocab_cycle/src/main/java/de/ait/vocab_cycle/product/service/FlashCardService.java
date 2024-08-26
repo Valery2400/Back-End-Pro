@@ -15,4 +15,5 @@ public interface FlashCardService {
 
     void delete(FlashCard flashCard);
 
+    void delete(Long id);
 }

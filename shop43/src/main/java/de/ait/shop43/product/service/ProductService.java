@@ -9,4 +9,6 @@ public interface ProductService {
     List<ResponseProductDTO> findAll();
 
     public ResponseProductDTO save(ResponseProductDTO dto);
+
+    ResponseProductDTO update(Long id, ResponseProductDTO dto);
 }
