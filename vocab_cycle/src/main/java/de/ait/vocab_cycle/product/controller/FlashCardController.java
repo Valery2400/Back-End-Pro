@@ -46,7 +46,7 @@ public class FlashCardController {
         return flashCardServiceImp.update(flashCard);
     }
 
-    @DeleteMapping("/flashcards/{id}")
+    @DeleteMapping("/{id}")
     public void deleteFlashCard(@PathVariable(name = "id") Long id, FlashCard flashCard) {
         flashCardServiceImp.delete(flashCard);
     }
