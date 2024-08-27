@@ -54,4 +54,9 @@ public class FlashCardServiceImp implements FlashCardService {
         flashCardRepository.delete(findById(id));
 
     }
+    @Override
+    public List<FlashCard> findAllByLanguageAndTranslateLanguage(String language, String translateLanguage ) {
+        return flashCardRepository.findAllByLanguageAndTranslateLanguage(String.valueOf(language), String.valueOf(translateLanguage));
+
+    }
 }
