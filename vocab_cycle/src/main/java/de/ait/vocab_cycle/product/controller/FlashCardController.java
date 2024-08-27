@@ -30,7 +30,8 @@ public class FlashCardController {
         return flashCardServiceImp.findAllByLanguageAndTranslateLanguage(language,translateLanguage);
     }
     @GetMapping("/search/by-word")
-    public FlashCard findFlashCardByWord(@RequestParam(name="word",required = false) String word){
+    public FlashCard findFlashCardByWord(
+            @RequestParam(name="word",required = false) String word){
         return flashCardServiceImp.findFlashCardByWord(word);
     }
 
