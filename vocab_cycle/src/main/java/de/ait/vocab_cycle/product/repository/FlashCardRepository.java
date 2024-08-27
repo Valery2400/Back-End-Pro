@@ -12,5 +12,6 @@ public interface FlashCardRepository extends JpaRepository<FlashCard, Long> {
 
 
 
+
 };
 

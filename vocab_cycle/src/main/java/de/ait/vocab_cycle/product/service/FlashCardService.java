@@ -16,6 +16,7 @@ public interface FlashCardService {
     void delete(FlashCard flashCard);
 
     void delete(Long id);
-    List<FlashCard> findAllByLanguageAndTranslateLanguage(String language, String translateLanguage);
 
+    List<FlashCard> findAllByLanguageAndTranslateLanguage(String language, String translateLanguage);
+    FlashCard findFlashCardByWord(String word);
 }

@@ -56,7 +56,12 @@ public class FlashCardServiceImp implements FlashCardService {
     }
     @Override
     public List<FlashCard> findAllByLanguageAndTranslateLanguage(String language, String translateLanguage ) {
-        return flashCardRepository.findAllByLanguageAndTranslateLanguage(String.valueOf(language), String.valueOf(translateLanguage));
+        return flashCardRepository.findAllByLanguageAndTranslateLanguage(language, translateLanguage);
 
+    }
+
+    @Override
+    public FlashCard findFlashCardByWord(String word) {
+        return flashCardRepository.findFlashCardByWord(word);
     }
 }
