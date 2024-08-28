@@ -1,6 +1,6 @@
 package de.ait.shop43.product.service;
 
-import de.ait.shop43.exeption.ProductNotFoundExeption;
+import de.ait.shop43.exception.ProductNotFoundException;
 import de.ait.shop43.product.dto.RequestProductDTO;
 import de.ait.shop43.product.dto.ResponseProductDTO;
 import de.ait.shop43.product.entity.Product;
@@ -51,7 +51,7 @@ public class ProductServiceImp implements ProductService {
     public ResponseProductDTO updateActiveStatus(Long productId, boolean active) {
         Product entity = repository
                 .findById(productId)
-                .orElseThrow(() -> new ProductNotFoundExeption("Product " + productId + " not found"));
+                .orElseThrow(() -> new ProductNotFoundException("Product " + productId + " not found"));
         entity.setActive(active);
 
         return mapper.map( entity, ResponseProductDTO.class);
