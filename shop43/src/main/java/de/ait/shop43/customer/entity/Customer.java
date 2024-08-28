@@ -24,6 +24,6 @@ public class Customer {
     private boolean active;
 
 
-    @OneToOne
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private Cart cart;
 }

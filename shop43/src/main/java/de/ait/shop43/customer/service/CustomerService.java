@@ -12,7 +12,7 @@ public interface CustomerService {
     public CustomerResponseDto getCustomerById (Long id);
     public CustomerResponseDto addProductToCart (Long customerId, Long productId);
     public CustomerResponseDto removeProductFromCart (Long customerId, Long productId);
-    public CustomerResponseDto changeStatus (Long id, Boolean active);
+    public CustomerResponseDto changeStatus (Long id, boolean active);
 
 
 }

@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -34,7 +35,19 @@ public class Cart {
 
 
     )
-    private List<Product> products;
+    private List<Product> products; // = new ArrayList<>(); // инициализация
 
+    public boolean addProduct(Product product) {
+        if (products==null) {
+            products = new ArrayList<>(); // ленивая инициализация
+        }
+        products.add(product);
+        return true;
+    }
 
-}
+    public boolean removeProduct(Product product) {
+        return products.remove(product);
+
+        }
+    }
+

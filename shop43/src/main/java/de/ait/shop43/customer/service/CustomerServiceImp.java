@@ -7,6 +7,9 @@ import de.ait.shop43.customer.dto.CustomerRequestDto;
 import de.ait.shop43.customer.dto.CustomerResponseDto;
 import de.ait.shop43.customer.entity.Customer;
 import de.ait.shop43.exception.CustomerNotFoundException;
+import de.ait.shop43.product.entity.Product;
+import de.ait.shop43.product.service.ProductService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -17,9 +20,11 @@ import java.util.List;
 @RequiredArgsConstructor // из каких соображений тут именно такая аннотация?
 public class CustomerServiceImp implements CustomerService {
     private final CustomerRepository repository;
+    private final ProductService productService;
     private final ModelMapper modelMapper;
 
     @Override
+    @Transactional
     public CustomerResponseDto createCustomer(CustomerRequestDto dto) {
         Customer entity = modelMapper.map(dto, Customer.class);
         entity.setActive(true);
@@ -50,20 +55,30 @@ public class CustomerServiceImp implements CustomerService {
     }
 
     @Override
+    @Transactional
     public CustomerResponseDto addProductToCart(Long customerId, Long productId) {
         Customer customer = findCustomerById(customerId);
-        Cart cart = customer.getCart();
+        Product product = productService.findProductById(productId);
+        customer.getCart().addProduct(product);
+        return modelMapper.map(customer, CustomerResponseDto.class);
 
-        return null;
     }
 
     @Override
+    @Transactional
     public CustomerResponseDto removeProductFromCart(Long customerId, Long productId) {
-        return null;
+        Customer customer = findCustomerById(customerId);
+        Product product = productService.findProductById(productId);
+        //////
+        customer.getCart().removeProduct(product);
+        return modelMapper.map(customer, CustomerResponseDto.class);
     }
 
     @Override
-    public CustomerResponseDto changeStatus(Long id, Boolean active) {
-        return null;
+    @Transactional
+    public CustomerResponseDto changeStatus(Long id, boolean active) {
+        Customer customerById = findCustomerById(id);
+        customerById.setActive(active);
+        return modelMapper.map(customerById, CustomerResponseDto.class);
     }
 }
