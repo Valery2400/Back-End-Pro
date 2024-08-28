@@ -31,6 +31,7 @@ public class CustomerServiceImp implements CustomerService {
         Cart cart = new Cart();
         entity.setCart(cart);   // в этих двух строчках
         cart.setCustomer(entity);// java relations
+
         entity = repository.save(entity);
         return modelMapper.map(entity, CustomerResponseDto.class);
     }

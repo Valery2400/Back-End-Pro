@@ -1,4 +1,4 @@
-package de.ait.shop43.cart.controller;
+package de.ait.shop43.customer.controller;
 
 import de.ait.shop43.customer.dto.CustomerRequestDto;
 import de.ait.shop43.customer.dto.CustomerResponseDto;
@@ -27,12 +27,13 @@ public class CustomerController {
 
         return service.getCustomerById(id);
     }
-    @PutMapping("/{customerId}/products/{productID}")
+    @PutMapping("/{customerId}/products/{productId}")
     public CustomerResponseDto addProductToCart(@PathVariable(name="customerId") Long customerId,
                                                 @PathVariable(name = "productId") Long productId) {
         return service.addProductToCart(customerId, productId);
     }
-    @DeleteMapping("/{customerId}/products/{productID}")
+
+    @DeleteMapping("/{customerId}/products/{productId}")
     public CustomerResponseDto removeProductFromCart(@PathVariable(name="customerId") Long customerId,
                                                      @PathVariable(name = "productId") Long productId) {
         return service.removeProductFromCart(customerId, productId);
