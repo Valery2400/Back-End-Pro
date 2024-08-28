@@ -51,6 +51,9 @@ public class CustomerServiceImp implements CustomerService {
 
     @Override
     public CustomerResponseDto addProductToCart(Long customerId, Long productId) {
+        Customer customer = findCustomerById(customerId);
+        Cart cart = customer.getCart();
+
         return null;
     }
 

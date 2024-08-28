@@ -49,12 +49,17 @@ public class ProductServiceImp implements ProductService {
     @Override
     @Transactional
     public ResponseProductDTO updateActiveStatus(Long productId, boolean active) {
+        Product entity = findProductById(productId);
+        entity.setActive(active);
+        return mapper.map(entity, ResponseProductDTO.class);
+    }
+
+    @Override
+    public Product findProductById(Long productId) {
         Product entity = repository
                 .findById(productId)
                 .orElseThrow(() -> new ProductNotFoundException("Product " + productId + " not found"));
-        entity.setActive(active);
-
-        return mapper.map( entity, ResponseProductDTO.class);
+        return entity;
     }
 
     @Override
@@ -64,5 +69,4 @@ public class ProductServiceImp implements ProductService {
                 .map(product -> mapper.map(product, ResponseProductDTO.class))
                 .toList();
     }
-
 }
