@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -32,15 +31,17 @@ public class UserServiceImp implements UserService, UserDetailsService {
                 .ifPresent(u -> {
                     throw new RuntimeException("User " + userRequestDto.getName() + "already exists");
                 });
+
+        // иначе создаем нового User
         Role role = roleService.getRoleByTitle("ROLE_USER");
         HashSet<Role> setRole = new HashSet<>();
         setRole.add(role);
-        String encode = bCryptPasswordEncoder.encode(userRequestDto.getPassword());
+        String encodePass = bCryptPasswordEncoder.encode(userRequestDto.getPassword());
 
-       // new User(null, userRequestDto.getName(),userRequestDto.getEmail(), encode,
-       //          Collections.singleton(role));
+        // new User(null, userRequestDto.getName(),userRequestDto.getEmail(), encodePass,
+        //          Collections.singleton(role));
         User newUser = userRepository.save(
-                new User(null, userRequestDto.getName(), userRequestDto.getEmail(), encode,
+                new User(null, userRequestDto.getName(), userRequestDto.getEmail(), encodePass,
                         setRole));
         return new UserResponseDto(
                 newUser.getId(),
