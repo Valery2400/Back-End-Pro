@@ -15,6 +15,8 @@ public class UserServiceImp implements UserService, UserDetailsService {
 
     private final UserRepository userRepository;
 
+
+
     @Override
     public List<UserResponseDto> getUsers() {
         return List.of();
@@ -32,6 +34,7 @@ public class UserServiceImp implements UserService, UserDetailsService {
     // как Spring получает user по логину
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        return userRepository.findUserByName(name).orElse(null);
+        return userRepository.findUserByName(name)
+                .orElseThrow(() -> new UsernameNotFoundException(name + "not found"));
     }
 }
