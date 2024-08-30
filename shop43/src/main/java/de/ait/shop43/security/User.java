@@ -29,7 +29,9 @@ public class User implements UserDetails {
     private String email;
     @Column(name = "password")
     private String password;
-    @ManyToMany
+
+
+    @ManyToMany(fetch = FetchType.EAGER) // fetch позволяет начитвть все поля из таблиц за текущую транзакцию!
     @JoinTable(name = "user_role",
                 joinColumns = @JoinColumn(name = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "role_id")

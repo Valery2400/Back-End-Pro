@@ -61,6 +61,12 @@ public class ProductServiceImp implements ProductService {
                 .orElseThrow(() -> new ProductNotFoundException("Product " + productId + " not found"));
         return entity;
     }
+    public ResponseProductDTO findById(Long productId) {
+
+        Product entity = findProductById(productId);
+        return mapper.map(entity, ResponseProductDTO.class);
+
+    }
 
     @Override
     public List<ResponseProductDTO> findByTitle(String title) {
