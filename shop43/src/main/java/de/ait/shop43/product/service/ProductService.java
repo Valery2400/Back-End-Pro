@@ -21,4 +21,6 @@ public interface ProductService {
     List<ResponseProductDTO> findByTitle(String title);
 
     Product findProductById(Long id);
+
+    ResponseProductDTO findById (Long id);
 }

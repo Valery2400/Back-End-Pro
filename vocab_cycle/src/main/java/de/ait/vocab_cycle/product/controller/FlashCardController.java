@@ -3,7 +3,7 @@ package de.ait.vocab_cycle.product.controller;
 import de.ait.vocab_cycle.product.entity.FlashCard;
 
 import de.ait.vocab_cycle.product.service.FlashCardServiceImp;
-import lombok.AllArgsConstructor;
+import lombok.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 public class FlashCardController {
     private final FlashCardServiceImp flashCardServiceImp;
 
-    @GetMapping("")
+    @GetMapping
     public List<FlashCard> getAllFlashCards() {
         return flashCardServiceImp.findAll();
     }
@@ -36,7 +36,7 @@ public class FlashCardController {
     }
 
 
-    @PostMapping("")
+    @PostMapping
     public FlashCard createFlashCard(@RequestBody FlashCard flashCard) {
         return flashCardServiceImp.save(flashCard);
     }

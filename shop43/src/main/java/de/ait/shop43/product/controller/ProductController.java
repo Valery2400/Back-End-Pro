@@ -43,4 +43,8 @@ public class ProductController {
 
         return this.service.updateActiveStatus(productId, active);
     }
+    @GetMapping ("/products/{id}")
+    public ResponseProductDTO findById(@PathVariable(name = "id") Long id) {
+        return this.service.findById(id);
+    }
 }
