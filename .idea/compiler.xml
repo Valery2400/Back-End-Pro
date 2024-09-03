@@ -8,10 +8,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="homework_03" />
         <module name="jdbc_demo" />
+        <module name="lesson_19" />
         <module name="lesson_07" />
         <module name="cons20240820" />
         <module name="homework_07" />
-        <module name="product_service" />
         <module name="cons20240813" />
         <module name="hybernate_xml_20240821" />
         <module name="shop43" />
@@ -21,6 +21,7 @@
       <module name="cons20240827" target="17" />
       <module name="homework_05" target="17" />
       <module name="lesson_07" target="17" />
+      <module name="product_service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
