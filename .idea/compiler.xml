@@ -11,15 +11,21 @@
         <module name="lesson_07" />
         <module name="cons20240820" />
         <module name="homework_07" />
-        <module name="protuct_service" />
-        <module name="cons20240827" />
+        <module name="product_service" />
         <module name="cons20240813" />
         <module name="hybernate_xml_20240821" />
+        <module name="shop43" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="cons20240827" target="17" />
       <module name="homework_05" target="17" />
       <module name="lesson_07" target="17" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="shop43" options="-parameters" />
+    </option>
   </component>
 </project>
