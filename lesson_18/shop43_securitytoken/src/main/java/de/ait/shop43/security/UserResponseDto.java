@@ -1,6 +1,7 @@
 package de.ait.shop43.security;
 
 
+import de.ait.shop43.role.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

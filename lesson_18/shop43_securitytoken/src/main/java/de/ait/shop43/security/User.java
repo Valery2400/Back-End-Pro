@@ -1,5 +1,6 @@
 package de.ait.shop43.security;
 
+import de.ait.shop43.role.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

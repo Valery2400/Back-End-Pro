@@ -1,5 +1,7 @@
 package de.ait.shop43.security;
 
+import de.ait.shop43.role.Role;
+import de.ait.shop43.role.RoleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

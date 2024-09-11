@@ -1,9 +1,13 @@
 package de.ait.shop43.security;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class RefreshRequestDto {
     private String refreshToken;
